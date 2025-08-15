@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rios Diaz Angelina Alexia – CV Profesional</title>
+<style>
+  :root{
+    --bg:#0f172a;
+    --card:#1e293b;
+    --primary:#22d3ee;
+    --text:#f8fafc;
+    --muted:#94a3b8;
+    --border:#334155;
+    --shadow:rgba(0,0,0,0.5);
+  }
+  
+  * {box-sizing:border-box;margin:0;padding:0;}
+  body {font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+  .container {max-width:1000px;margin:auto;padding:20px;}
+  header {text-align:center;margin-bottom:40px;}
+  header h1 {font-size:36px;color:var(--primary);}
+  header p {color:var(--muted);font-weight:500;margin-top:4px;}
+
+  .photo-container {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .photo-container img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    box-shadow: 0 10px 25px var(--shadow);
+  }
+
+  .info-card {
+    background:var(--card);
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 10px 25px var(--shadow);
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-bottom: 40px;
+  }
+  .info-card div {display:flex;flex-direction:column;margin-bottom:10px;}
+  .info-card .label {font-weight:bold;color:var(--primary);margin-bottom:3px;}
+  
+  section {margin-bottom:40px;}
+  section h2 {font-size:24px;color:var(--primary);border-bottom:3px solid var(--primary);padding-bottom:6px;margin-bottom:20px;}
+  
+  .card {background:var(--card);border-radius:20px;padding:25px;box-shadow:0 10px 25px var(--shadow);margin-bottom:20px;}
+  ul {padding-left:20px;margin-top:10px;}
+  .tag {display:inline-block;background:var(--border);color:var(--text);padding:6px 12px;border-radius:12px;margin:3px 5px 0 0;font-size:13px;}
+  .contact-card div {margin-bottom:10px;}
+  a {color:var(--primary);text-decoration:none;}
+  a:hover {text-decoration:underline;}
+
+  .projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .project-item {
+    background: var(--card);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px var(--shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+  }
+  .project-item:hover {
+    transform: translateY(-5px);
+  }
+  .project-image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    background-color: #555;
+  }
+  .project-image-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .project-details {
+    padding: 15px;
+  }
+  .project-title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  .project-title-wrapper h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+  }
+  .project-title-wrapper a {
+    color: var(--muted);
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+  }
+  .project-title-wrapper a:hover {
+    color: var(--primary);
+    text-decoration: none;
+  }
+  .project-details p {
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .experience-container {
+    display: flex;
+    gap: 40px;
+  }
+  .companies-list {
+    width: 250px;
+    background-color: var(--card);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px var(--shadow);
+    padding: 20px 0;
+  }
+  .companies-list .company-item {
+    padding: 15px 20px;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+    transition: all 0.3s ease;
+  }
+  .companies-list .company-item.active,
+  .companies-list .company-item:hover {
+    background-color: var(--bg);
+    border-left-color: var(--primary);
+    color: var(--primary);
+  }
+  .companies-list .company-item p {
+    font-weight: 500;
+    margin: 0;
+  }
+  .experience-details {
+    flex: 1;
+    background-color: var(--card);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px var(--shadow);
+    padding: 30px;
+  }
+  .job-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  .job-details {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+  .job-description ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .job-description ul li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: var(--text);
+  }
+  .job-description ul li svg {
+    color: var(--primary);
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+
+  @media(max-width:750px){
+    .info-card {grid-template-columns:1fr;}
+    .projects-container {grid-template-columns:1fr;}
+    .experience-container {flex-direction: column;gap: 20px;}
+    .companies-list {width: 100%;}
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <h1>Rios Diaz Angelina Alexia</h1>
+    <p>Córdoba Capital, Argentina · Aprendiz de Programación</p>
+  </header>
+
+  <div class="photo-container">
+    <img src="Foto.jpg" alt="Foto de perfil">
+  </div>
+
+  <div class="info-card">
+    <div><span class="label">Edad</span>19</div>
+    <div><span class="label">Fecha de nacimiento</span>24/06/2006</div>
+    <div><span class="label">DNI</span>47301970</div>
+    <div><span class="label">Teléfono</span>2805014839</div>
+    <div><span class="label">Email</span><a href="mailto:anrios2406@gmail.com"> anrios2406@gmail.com</a></div>
+    <div><span class="label">Domicilio</span>Independencia 1470</div>
+    <div><span class="label">Idiomas</span>Español (nativo), Inglés C1</div>
+  </div>
+
+  <section>
+    <h2>Perfil Profesional</h2>
+    <div class="card">
+      <p>Aprendiz de programación con conocimientos en HTML, CSS, JavaScript, Git y Python. Interesada en proyectos prácticos, con enfoque en aprendizaje continuo, atención al detalle y resultados de calidad.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Cursos y Proyectos</h2>
+    <div class="experience-container">
+      <div class="companies-list">
+        <div class="company-item active" data-company="html_css">
+          <p>Prácticas HTML/CSS</p>
+        </div>
+        <div class="company-item" data-company="python">
+          <p>Proyecto Python</p>
+        </div>
+        <div class="company-item" data-company="javascript">
+          <p>Ejercicios JS</p>
+        </div>
+      </div>
+      
+      <div class="experience-details" id="experience-content">
+        </div>
+    </div>
+  </section>
+  
+  <section>
+    <h2>Habilidades</h2>
+    <div class="card">
+      <h3>Técnicas</h3>
+      <div class="tag">HTML</div>
+      <div class="tag">CSS</div>
+      <div class="tag">JavaScript</div>
+      <div class="tag">Git</div>
+      <div class="tag">Python</div>
+      <h3>Blandas</h3>
+      <div class="tag">Aprendizaje autónomo</div>
+      <div class="tag">Orden y prolijidad</div>
+      <div class="tag">Comunicación clara</div>
+      <h3>Idiomas</h3>
+      <div class="tag">Español — Nativo</div>
+      <div class="tag">Inglés — C1</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Logros y reconocimientos</h2>
+    <div class="card">
+      <ul>
+        <li>Proyectos de aprendizaje completados con éxito.</li>
+        <li>Buenas prácticas en programación y maquetado web.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Contacto</h2>
+    <div class="card contact-card">
+      <div>Email: <a href="mailto:anrios2406@gmail.com">anrios2406@gmail.com</a></div>
+      <div>Teléfono: 2805014839</div>
+      <div>Domicilio: Independencia 1470, Córdoba Capital</div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  const experiences = {
+    html_css: {
+      title: "Prácticas de HTML y CSS",
+      time: "2024",
+      duties: [
+        "Desarrollo de maquetado web para páginas estáticas.",
+        "Aplicación de estilos avanzados para mejorar la estética y usabilidad.",
+        "Uso de Flexbox y Grid para la creación de diseños responsivos."
+      ]
+    },
+    python: {
+      title: "Proyecto Python básico",
+      time: "2024",
+      duties: [
+        "Creación de scripts para automatizar tareas sencillas.",
+        "Desarrollo de funciones y estructuras de control para resolver problemas lógicos.",
+        "Manejo básico de datos y archivos de texto."
+      ]
+    },
+    javascript: {
+      title: "Ejercicios de JavaScript",
+      time: "2024",
+      duties: [
+        "Manipulación del DOM para crear interactividad en el navegador.",
+        "Implementación de lógica para validación de formularios.",
+        "Prácticas de manejo de eventos y funciones asíncronas."
+      ]
+    }
+  };
+
+  const companyItems = document.querySelectorAll('.company-item');
+  const experienceContent = document.getElementById('experience-content');
+
+  function renderExperience(company) {
+    const data = experiences[company];
+    experienceContent.innerHTML = `
+      <p class="job-title">${data.title}</p>
+      <p class="job-details">${data.time}</p>
+      <div class="job-description">
+        <ul>
+          ${data.duties.map(duty => `
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z"/>
+              </svg>
+              ${duty}
+            </li>
+          `).join('')}
+        </ul>
+      </div>
+    `;
+  }
+
+  companyItems.forEach(item => {
+    item.addEventListener('click', () => {
+      companyItems.forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+      const company = item.dataset.company;
+      renderExperience(company);
+    });
+  });
+
+  renderExperience('html_css');
+</script>
+
+</body>
+</html>
