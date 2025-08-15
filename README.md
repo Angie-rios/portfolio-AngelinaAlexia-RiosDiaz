@@ -11,7 +11,7 @@ Portfolio personal para mostrar mis habilidades, proyectos y formación como est
 - Github
 
 ## Sitio desplegado
-[Ver en GitHub Pages](https://Angie-rios.github.io/portfolio-rios-diaz-angelina)
+[Ver en GitHub Pages](https://github.com/Angie-rios/portfolio-AngelinaAlexia-RiosDiaz)
 
 ## Créditos
 Desarrollado por Rios Diaz Angelina Alexia.
